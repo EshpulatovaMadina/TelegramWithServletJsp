@@ -1,0 +1,31 @@
+/* Ma'lumotlar jadvalini to'g'rilash uchun global jadval-stili */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Ma'lumotlar jadvalida qator-stili */
+tr {
+    border-bottom: 1px solid #ccc;
+}
+
+/* Ma'lumotlar jadvalida ustun-stili */
+td {
+    padding: 10px;
+}
+
+/* Tugma-stili (aql oyoq ishlatish uchun) */
+.button-style {
+    background-color: #f1f1f1;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Tugma-stilida hover holati (aql oyoq ishlatish uchun) */
+.button-style:hover {
+    background-color: #ccc;
+}

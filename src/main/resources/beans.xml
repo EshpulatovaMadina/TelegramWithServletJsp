@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="userService" class="com.example.telegramwithservletjsp.service.UserService">
+        <constructor-arg name="userRepository" ref="userRepositoryImpl"/>
+    </bean>
+
+    <bean id="chatService" class="com.example.telegramwithservletjsp.service.ChatService">
+        <constructor-arg name="chatRepository" ref="chatRepositoryImpl"/>
+    </bean>
+
+    <bean id="messageService" class="com.example.telegramwithservletjsp.service.MessageService">
+        <constructor-arg name="messageRepository" ref="messageRepositoryImpl"/>
+    </bean>
+
+
+    <bean id="userRepositoryImpl" class="com.example.telegramwithservletjsp.repository.user.UserRepositoryImpl">
+        <constructor-arg name="connection">
+            <bean factory-bean="dbConnection" factory-method="connection"/>
+        </constructor-arg>
+    </bean>
+   <bean id="messageRepositoryImpl" class="com.example.telegramwithservletjsp.repository.message.MessageRepositoryImpl">
+        <constructor-arg name="connection">
+            <bean factory-bean="dbConnection" factory-method="connection"/>
+        </constructor-arg>
+        </bean>
+   <bean id="chatRepositoryImpl" class="com.example.telegramwithservletjsp.repository.chat.ChatRepositoryImpl">
+        <constructor-arg name="connection">
+            <bean factory-bean="dbConnection" factory-method="connection"/>
+        </constructor-arg>
+    </bean>
+
+    <bean id="dbConnection" class="com.example.telegramwithservletjsp.config.DbConnection">
+        <property name="password" value="2006"/>
+        <property name="url" value="jdbc:postgresql://localhost:5432/Telegram"/>
+        <property name="username" value="postgres"/>
+    </bean>
+</beans>
